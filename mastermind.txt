@@ -1,0 +1,36 @@
+@startuml
+
+title Mastermind domain model
+
+class Mastermind
+class Board
+class Turn
+class Player
+class MakerPlayer
+class BreakerPlayer
+class Combination
+class ProposalCombination
+class SecretCombination
+class Winer
+
+Combination <|-- ProposalCombination
+Combination <|-- SecretCombination
+Board --> SecretCombination
+
+Player <|-- MakerPlayer
+Player <|-- BreakerPlayer
+MakerPlayer --> SecretCombination
+BreakerPlayer --> ProposalCombination
+
+
+
+Mastermind *-- "2" Player
+Mastermind *-- Board
+Mastermind *-- Turn
+
+Player --> Turn
+
+Turn --> Board
+
+
+@enduml
